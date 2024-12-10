@@ -42,6 +42,7 @@ public class LoginPage {
     private WebElement signincontinueButton;
 
     public void login() {
+    	    Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
     	    wait.until(ExpectedConditions.visibilityOf(companyId));
     	    companyId.clear();
     	    companyId.sendKeys(TestData.companyId);
