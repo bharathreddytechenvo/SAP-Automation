@@ -143,8 +143,9 @@ public class AddNewEmployeePage  {
     }
     
     public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws InterruptedException {
-    	Thread.sleep(5000);
-    	wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
+    Thread.sleep(20000);
+    Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
+    wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
     String EventReasonInputXpath = "//div[@id='__grid0-wrapperfor-__layout11']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box0-inner']";
     String EventReasonListXpathTemplate = "//div[text()='{item}']"; 
     selectFromDropdown(EventReasonNameinput, EventReasonInputXpath, EventReasonName, EventReasonListXpathTemplate);

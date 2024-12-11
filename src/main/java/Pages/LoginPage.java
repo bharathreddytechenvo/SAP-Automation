@@ -6,11 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import Utils.ScreenShot; 
 import Utils.TestData;
-import Utils.Utilities;
 
-import java.time.Duration;
 
 public class LoginPage {
 
@@ -18,7 +16,7 @@ public class LoginPage {
     private WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
-    	if (driver == null) {
+        if (driver == null) {
             throw new IllegalArgumentException("WebDriver instance is null!");
         }
         this.driver = driver;
@@ -42,20 +40,22 @@ public class LoginPage {
     private WebElement signincontinueButton;
 
     public void login() {
-    	    wait.until(ExpectedConditions.visibilityOf(companyId));
-    	    companyId.clear();
-    	    companyId.sendKeys(TestData.companyId);
+        wait.until(ExpectedConditions.visibilityOf(companyId));
+        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
 
-    	    wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
+        companyId.clear();
+        companyId.sendKeys(TestData.companyId);
 
-    	    wait.until(ExpectedConditions.visibilityOf(userName));
-    	    userName.clear();
-    	    userName.sendKeys(TestData.userName);
+        wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
 
-    	    wait.until(ExpectedConditions.visibilityOf(passwordField));
-    	    passwordField.clear();
-    	    passwordField.sendKeys(TestData.password);
+        wait.until(ExpectedConditions.visibilityOf(userName));
+        userName.clear();
+        userName.sendKeys(TestData.userName);
 
-    	    wait.until(ExpectedConditions.elementToBeClickable(signincontinueButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
+        passwordField.clear();
+        passwordField.sendKeys(TestData.password);
+
+        wait.until(ExpectedConditions.elementToBeClickable(signincontinueButton)).click();
     }
 }

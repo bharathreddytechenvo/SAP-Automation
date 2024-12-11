@@ -24,6 +24,8 @@ public class HomePage {
 
     public void searchForActionsOrPeople(String input) {
         try {
+            Thread.sleep(10000);
+            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
             Robot robot = new Robot();
 
             for (int i = 0; i < 3; i++) {
