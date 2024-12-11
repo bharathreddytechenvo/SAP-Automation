@@ -17,31 +17,28 @@ import java.util.concurrent.ExecutionException;
 
 public class TestBase {
 
-    protected WebDriver driver;  
+    protected WebDriver driver;
     protected BasePage basePage;
     private LoginPage loginPage;
     private PageObjectManager pageObjectManager;
 
     // Launch the application
     public void LaunchApplication() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
-        System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
-        //System.setProperty("webdriver.http.factory", "jdk-http-client");
-       ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        //options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");
+        if (driver == null) {
+            System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--incognito");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--window-size=1920,1080");
 
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.get(TestData.url);
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.get(TestData.url);
+        }
 
-        // Ensure PageObjectManager is initialized only after the driver is set
-        pageObjectManager = new PageObjectManager(getDriver());
-
-        // Ensure loginPage is initialized after PageObjectManager
+        pageObjectManager = new PageObjectManager(driver);  // Ensure PageObjectManager is initialized after the driver
         loginPage = pageObjectManager.getLoginPage();
         loginPage.login();
     }

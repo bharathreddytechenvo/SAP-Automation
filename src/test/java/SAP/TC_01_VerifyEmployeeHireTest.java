@@ -24,19 +24,16 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
 	private PageObjectManager pageObjectManager;
     private HomePage homePage;
     private AddNewEmployeePage addNewEmployeePage;
-    private TestBase testBase;
     
     @BeforeMethod
     public void setUp() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
-    	testBase = new TestBase();
-    	testBase.LaunchApplication();
+    	super.LaunchApplication();
     }
 
     @Test
     public void VerifyEmployeeHireTest() {
         try {
         	Thread.sleep(5000);
-        	WebDriver driver = getDriver();
 			pageObjectManager = new PageObjectManager(getDriver());
             homePage = pageObjectManager.getHomePage(); 
             homePage.searchForActionsOrPeople(TestData.addnewEmployee);
@@ -87,6 +84,6 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
 
     @AfterMethod
     public void CloseApplication() {
-    	testBase.quitDriver();
+    	super.quitDriver();
     }
 }
