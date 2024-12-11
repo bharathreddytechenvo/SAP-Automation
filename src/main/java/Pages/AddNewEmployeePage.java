@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,7 +17,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import Utils.Utilities;
 
 public class AddNewEmployeePage  {
 	
@@ -142,8 +142,21 @@ public class AddNewEmployeePage  {
         }
     }
     
+    public static void switchToNewWindowAndPerformActions(WebDriver driver) {
+        Set<String> windowHandles = driver.getWindowHandles();
+        String originalWindow = driver.getWindowHandle(); // Store the original window handle
+        for (String handle : windowHandles) {
+            if (!handle.equals(originalWindow)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+        System.out.println("Title of the new page: " + driver.getTitle());
+    }
+    
     public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws InterruptedException {
-    Thread.sleep(5000);
+    Thread.sleep(10000);
+    switchToNewWindowAndPerformActions(driver);
     wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
     String EventReasonInputXpath = "//div[@id='__grid0-wrapperfor-__layout11']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box0-inner']";
     String EventReasonListXpathTemplate = "//div[text()='{item}']"; 
