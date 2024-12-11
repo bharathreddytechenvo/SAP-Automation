@@ -41,7 +41,6 @@ public class LoginPage {
 
     public void login() {
         wait.until(ExpectedConditions.visibilityOf(companyId));
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
 
         companyId.clear();
         companyId.sendKeys(TestData.companyId);
