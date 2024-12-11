@@ -13,6 +13,7 @@ public class TestBase {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(TestData.url);
+        System.out.println("Title of the page: " + driver.getTitle());
     }
 
     public WebDriver getDriver() {
