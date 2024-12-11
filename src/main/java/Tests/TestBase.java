@@ -26,15 +26,15 @@ public class TestBase {
     public void LaunchApp() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
         System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
         //System.setProperty("webdriver.http.factory", "jdk-http-client");
-       /*ChromeOptions options = new ChromeOptions();
+       ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");*/
+        options.addArguments("--window-size=1920,1080");
 
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(TestData.url);
 

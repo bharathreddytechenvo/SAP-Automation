@@ -23,12 +23,12 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
 	private PageObjectManager pageObjectManager;
     private HomePage homePage;
     private AddNewEmployeePage addNewEmployeePage;
-    
+    private TestBase testBase;
     
     @BeforeMethod
     public void LaunchApplication() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
-        super.LaunchApp();
-        
+    	testBase = new TestBase();
+    	testBase.LaunchApp();
     }
 
     @Test
@@ -85,6 +85,6 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
 
     @AfterMethod
     public void CloseApplication() {
-    	super.quitDriver();
+    	testBase.quitDriver();
     }
 }
