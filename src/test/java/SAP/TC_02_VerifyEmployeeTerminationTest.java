@@ -27,7 +27,7 @@ public class TC_02_VerifyEmployeeTerminationTest extends TestBase {
     }
 
     @Test
-    public void VerifyEmployeeTerminationTest() {
+    public void VerifyEmployeeTerminationTest() throws Throwable {
         try {
             loginPage = pageObjectManager.getLoginPage();
             loginPage.login();

@@ -33,7 +33,7 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     }
 
     @Test
-    public void VerifyEmployeeHireTest() {
+    public void VerifyEmployeeHireTest() throws Throwable {
         try {
             loginPage = pageObjectManager.getLoginPage();
             loginPage.login();

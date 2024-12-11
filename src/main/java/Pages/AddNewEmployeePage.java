@@ -22,17 +22,16 @@ public class AddNewEmployeePage  {
 	
 	private WebDriver driver;
     private WebDriverWait wait;
-   
 
     public AddNewEmployeePage(WebDriver driver) {
-    	if (driver == null) {
+        if (driver == null) {
             throw new IllegalArgumentException("WebDriver instance is null!");
         }
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 30);
         PageFactory.initElements(driver, this);
     }
-
+    
     @FindBy(xpath = "//h1[@id='__title0']")
     private WebElement addnewEmployee;
     
@@ -154,9 +153,15 @@ public class AddNewEmployeePage  {
         System.out.println("Title of the new page: " + driver.getTitle());
     }
     
-    public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws InterruptedException {
+    public void scrollToElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    
+    public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws Throwable  {
     switchToNewWindowAndPerformActions(driver);
-    Thread.sleep(30000);
+    Thread.sleep(10000);
+    scrollToElement(addnewEmployee);
     wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
     String EventReasonInputXpath = "//div[@id='__grid0-wrapperfor-__layout11']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box0-inner']";
     String EventReasonListXpathTemplate = "//div[text()='{item}']"; 
