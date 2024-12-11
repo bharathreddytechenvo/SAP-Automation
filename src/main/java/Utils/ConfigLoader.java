@@ -22,7 +22,7 @@ public class ConfigLoader {
 
     public static void loadConfigFromYaml() throws IOException {
         Yaml yaml = new Yaml();
-        try (FileReader reader = new FileReader("src/test/resources/config.yaml")) {
+        try (FileReader reader = new FileReader("src/main/resources/config.yaml")) {
             Config config = yaml.loadAs(reader, Config.class);  // Use FileReader instead of File
             browser = config.getBrowser();
             url = config.getUrl();
