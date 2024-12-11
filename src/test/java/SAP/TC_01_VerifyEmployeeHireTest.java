@@ -6,8 +6,7 @@ import java.net.MalformedURLException;
 import java.util.concurrent.ExecutionException;
 
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -31,6 +30,7 @@ public class TC_01_VerifyEmployeeHireTest {
     	 try {
     	    testBase = new TestBase();
     	    testBase.LaunchApplication();
+    	    pageObjectManager = new PageObjectManager(testBase.getDriver());
          } catch (Exception e) {
              e.printStackTrace();
          }
@@ -40,8 +40,6 @@ public class TC_01_VerifyEmployeeHireTest {
     @Test
     public void VerifyEmployeeHireTest() {
         try {
-        	Thread.sleep(5000);
-			pageObjectManager = new PageObjectManager(testBase.getDriver());
             homePage = pageObjectManager.getHomePage(); 
             homePage.searchForActionsOrPeople(TestData.addnewEmployee);
             addNewEmployeePage = pageObjectManager.getAddNewEmployeePage(); 
@@ -85,7 +83,7 @@ public class TC_01_VerifyEmployeeHireTest {
             addNewEmployeePage.clickContinueButtonPersonalPhoneformation();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new AssertionError("Test Failed due to: " + e.getMessage());
+            Assert.fail("Test failed due to exception: " + e.getMessage());
         }
     }
 

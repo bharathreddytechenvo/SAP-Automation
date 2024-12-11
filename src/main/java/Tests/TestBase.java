@@ -29,7 +29,7 @@ public class TestBase {
             System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
             System.setProperty("webdriver.chrome.verboseLogging", "true");
             ChromeOptions options = new ChromeOptions();
-            options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+            //options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
             options.addArguments("--incognito");
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
