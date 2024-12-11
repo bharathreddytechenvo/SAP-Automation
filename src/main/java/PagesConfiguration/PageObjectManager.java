@@ -1,48 +1,41 @@
 package PagesConfiguration;
 
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import Pages.AddNewEmployeePage;
 import Pages.HomePage;
 import Pages.LoginPage;
-import Tests.TestBase;
-import Utils.Utilities;
 
-import java.awt.AWTException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.concurrent.ExecutionException;
+public class PageObjectManager {
 
-public class PageObjectManager extends TestBase {
-
+    private WebDriver driver;
     private LoginPage loginPage;
     private HomePage homePage;
     private AddNewEmployeePage addNewEmployeePage;
 
     public PageObjectManager(WebDriver driver) {
+        if (driver == null) {
+            throw new IllegalArgumentException("WebDriver instance is null!");
+        }
         this.driver = driver;
     }
-    
-    public LoginPage getLoginPage()
-            throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
+
+    public LoginPage getLoginPage() {
         if (loginPage == null) {
-            loginPage = new LoginPage(getDriver());
+            loginPage = new LoginPage(driver);
         }
         return loginPage;
     }
-    
-    public HomePage getHomePage()
-            throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
+
+    public HomePage getHomePage() {
         if (homePage == null) {
-            homePage = new HomePage(getDriver());
+            homePage = new HomePage(driver);
         }
         return homePage;
     }
-    
-    public AddNewEmployeePage getAddNewEmployeePage()
-            throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
+
+    public AddNewEmployeePage getAddNewEmployeePage() {
         if (addNewEmployeePage == null) {
-            addNewEmployeePage = new AddNewEmployeePage(getDriver());
+            addNewEmployeePage = new AddNewEmployeePage(driver);
         }
         return addNewEmployeePage;
     }

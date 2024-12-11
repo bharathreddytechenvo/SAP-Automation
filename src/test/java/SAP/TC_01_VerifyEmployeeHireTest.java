@@ -13,25 +13,30 @@ import org.testng.annotations.Test;
 
 import Pages.AddNewEmployeePage;
 import Pages.HomePage;
+import Pages.LoginPage;
 import PagesConfiguration.PageObjectManager;
 import Tests.TestBase;
 import Utils.TestData;
 import Utils.Utilities;
 
-public class TC_01_VerifyEmployeeHireTest {
+public class TC_01_VerifyEmployeeHireTest extends TestBase {
 	
 	private PageObjectManager pageObjectManager;
     private HomePage homePage;
+    private LoginPage loginPage;
     private AddNewEmployeePage addNewEmployeePage;
-    private TestBase testBase;
     
+    @BeforeMethod
+    public void setup() {
+        LaunchApplication();
+        pageObjectManager = new PageObjectManager(getDriver());
+    }
 
     @Test
     public void VerifyEmployeeHireTest() {
         try {
-            testBase = new TestBase();
-     	    testBase.LaunchApplication();
-     	    pageObjectManager = new PageObjectManager(testBase.getDriver());
+            loginPage = pageObjectManager.getLoginPage();
+            loginPage.login();
             homePage = pageObjectManager.getHomePage(); 
             homePage.searchForActionsOrPeople(TestData.addnewEmployee);
             addNewEmployeePage = pageObjectManager.getAddNewEmployeePage(); 
@@ -73,10 +78,14 @@ public class TC_01_VerifyEmployeeHireTest {
             addNewEmployeePage.fillPhoneNumberInEmailInformation(Utilities.generatePhoneNumber());
             addNewEmployeePage.selectIsPrimaryInPhoneInformation("Yes");
             addNewEmployeePage.clickContinueButtonPersonalPhoneformation();
-            testBase.quitDriver();
         } catch (Exception e) {
             e.printStackTrace();
             Assert.fail("Test failed due to exception: " + e.getMessage());
         }
+    }
+    
+    @AfterMethod
+    public void tearDown() {
+        quitDriver();
     }
 }
