@@ -26,6 +26,8 @@ public class TestBase {
     public void LaunchApplication() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
         if (driver == null) {
             System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
+            System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
+            System.setProperty("webdriver.chrome.verboseLogging", "true");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
             options.addArguments("--disable-gpu");
