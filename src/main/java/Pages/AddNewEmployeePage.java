@@ -143,9 +143,8 @@ public class AddNewEmployeePage  {
     }
     
     public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws InterruptedException {
-    	Thread.sleep(20000);
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
-    wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
+    	Thread.sleep(5000);
+    	wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
     String EventReasonInputXpath = "//div[@id='__grid0-wrapperfor-__layout11']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box0-inner']";
     String EventReasonListXpathTemplate = "//div[text()='{item}']"; 
     selectFromDropdown(EventReasonNameinput, EventReasonInputXpath, EventReasonName, EventReasonListXpathTemplate);
@@ -153,8 +152,7 @@ public class AddNewEmployeePage  {
     
     public void selectEventReasonFromDropdown(String EventReasonName) throws InterruptedException {
         try {
-        	Thread.sleep(20000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
+        	Thread.sleep(5000);
             WebElement EventReasonDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box1-content']//div[@class='sapMInputBaseIconContainer']")));
             EventReasonDropdown.click();
             String EventReasonNameXPath = "//div[text()='" + EventReasonName + "']";
@@ -168,7 +166,6 @@ public class AddNewEmployeePage  {
     public void fillNameInformation(String firstname, String middlename, String lastName, String salutationValue, String suffixValue) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
             Actions actions = new Actions(driver);
             FirstName.clear();
             actions.moveToElement(FirstName).click().sendKeys(firstname).perform();
@@ -215,7 +212,6 @@ public class AddNewEmployeePage  {
     public void selectDateOfBirth(int yearsAgo, String CountryOfBirth) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
             WebElement dobIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id='__picker1-icon']")));
             dobIcon.click();
             Thread.sleep(3000);
@@ -260,7 +256,6 @@ public class AddNewEmployeePage  {
     public void fillEmployeeInformation(String personId, String userName) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	wait.until(ExpectedConditions.visibilityOf(personid));
         	Actions actions = new Actions(driver);
         	personid.clear();
@@ -277,7 +272,6 @@ public class AddNewEmployeePage  {
     public void clickNationalIdAddButton() {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement addButton = wait.until(ExpectedConditions.visibilityOf(nationalIdAddbutton));
         	addButton.click();
         } catch (Exception e) {
@@ -286,7 +280,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectCountryNationalIdInformation(String country) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
     	String selectCountrydropdown = "//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box5']//div[@id='__box5-content']//div[@class='sapMInputBaseIconContainer']";
         String selectCountrydropdownList = "//ul[@id='__box5-popup-list-listUl']";
         selectDropdownOption(selectCountrydropdown, selectCountrydropdownList, country);
@@ -294,7 +287,6 @@ public class AddNewEmployeePage  {
 
     
     public void SelectNationalIdCardtype(String NationalIdCardType) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
     	String selectNationalIdDropdown = "//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box6']//div[@class='sapMInputBaseIconContainer']";
         String selectNationalIdDropdownList = "//ul[@id='__box6-popup-list-listUl']";
         selectDropdownOption(selectNationalIdDropdown, selectNationalIdDropdownList, NationalIdCardType);
@@ -303,7 +295,6 @@ public class AddNewEmployeePage  {
     public void fillNationalId(String NationalId) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement nationalId = wait.until(ExpectedConditions.visibilityOf(nationalIdInput));
         	nationalId.clear();
         	nationalId.sendKeys(NationalId);
@@ -313,7 +304,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectIsPrimaryNationalIdInformation(String isPrimary) {
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	String selectIsPrimarydropdown = "//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box7']//div[@id='__box7-content']//div[@class='sapMInputBaseIconContainer']";
             String selectIsPriimarydropdownList = "//ul[@id='__box7-popup-list-listUl']";
             selectDropdownOption(selectIsPrimarydropdown, selectIsPriimarydropdownList, isPrimary);
@@ -322,7 +312,6 @@ public class AddNewEmployeePage  {
     public void clickContinueButton() {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement nationalId = wait.until(ExpectedConditions.visibilityOf(continueButton));
         	nationalId.click();
         } catch (Exception e) {
@@ -331,21 +320,18 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectGenderPersonalInformation(String gender) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
     	String selectGenderdropdown = "//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box8']//div[@class='sapMInputBaseIconContainer']";
         String selectGenderdropdownList = "//ul[@id='__box8-popup-list-listUl']";
         selectDropdownOption(selectGenderdropdown, selectGenderdropdownList, gender);
     }
     
     public void SelectMaritalStatusPersonalInformation(String maritalStatusinput, String maritalStatus) throws InterruptedException {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String MaritalStatusinput = "//div[@id='__grid4-wrapperfor-__layout55']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box9-inner']";
         String MaritalStatusSelect = "//div[text()='{item}']"; 
         selectFromDropdown(maritalStatusinput, MaritalStatusinput, maritalStatus, MaritalStatusSelect);
         }
     
     public void SelectPreferedLanguagePersonalInformation(String preferredLanguageinput, String preferredLanguageStatus) throws InterruptedException {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String preferredlanguageinput = "//div[@id='__grid4-wrapperfor-__layout56']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box10-inner']";
         String preferredLanguageSelect = "//div[text()='{item}']"; 
         selectFromDropdown(preferredLanguageinput, preferredlanguageinput, preferredLanguageStatus, preferredLanguageSelect);
@@ -354,7 +340,6 @@ public class AddNewEmployeePage  {
     public void fillPreferredName(String PreferredName) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement preferredname = wait.until(ExpectedConditions.visibilityOf(preferredNameInput));
         	preferredname.clear();
         	preferredname.sendKeys(PreferredName);
@@ -364,14 +349,12 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectNationalityInPersonalInformation(String Nationalityinput, String Nationality) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String NationalityInput = "//div[@id='__grid4-wrapperfor-__layout58']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box11-inner']";
         String NationalityinputList = "//div[text()='{item}']"; 
         selectFromDropdown(Nationalityinput, NationalityInput, Nationality, NationalityinputList);
         }
     
     public void selectCountryInGlobalInformation(String countryName) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String countrydropdownXpath = "//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__panel0']/following::span[@id='__box12-arrow']";
         String countrylistContainerXpath = "//div[@id='__box12-popup-list']";
         selectDropdownOption(countrydropdownXpath, countrylistContainerXpath, countryName);
@@ -379,7 +362,6 @@ public class AddNewEmployeePage  {
 
     public void selectDateLearnedInGlobalInformation() {
         try {
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
             LocalDate today = LocalDate.now();
             LocalDate tomorrow = today.plusDays(1);
             int tomorrowDay = tomorrow.getDayOfMonth();
@@ -395,7 +377,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectChallengeGroupInGlobalInformation(String Challengeinput, String Challenge) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String ChallengeInputxpath = "//div[@class='sapUiVltCell sapuiVltCell']//input[@id='__box25-inner']";
         String ChallengeinputList = "//div[text()='{item}']"; 
         selectFromDropdown(Challengeinput, ChallengeInputxpath, Challenge, ChallengeinputList);
@@ -404,7 +385,6 @@ public class AddNewEmployeePage  {
     public void fillDegreeOfChallengeInGlobalInformation(String DegreeOfChallenge) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement degreeofchallenge= wait.until(ExpectedConditions.visibilityOf(degreeOfChallenge));
         	degreeofchallenge.clear();
         	degreeofchallenge.sendKeys(DegreeOfChallenge);
@@ -416,7 +396,6 @@ public class AddNewEmployeePage  {
     public void selectTypeOfChallengeGlobalInformation(String typeofchallenege) throws InterruptedException {
         try {
         	Thread.sleep(20000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
             WebElement typeofChallenegeDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='__box24']//div[@class='sapMInputBaseIconContainer']")));
             typeofChallenegeDropdown.click();
             String TypeOfChallenegeXPath = "//div[text()='" + typeofchallenege + "']";
@@ -430,7 +409,6 @@ public class AddNewEmployeePage  {
     public void fillIssuingAuthorityInGlobalInformation(String IssuingAuthority) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement issuingauthority= wait.until(ExpectedConditions.visibilityOf(issuingAuthorityinput));
         	issuingauthority.clear();
         	issuingauthority.sendKeys(IssuingAuthority);
@@ -442,7 +420,6 @@ public class AddNewEmployeePage  {
     public void fillReferenceNumberInGlobalInformation(String ReferenceNumber) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement Referencenumber= wait.until(ExpectedConditions.visibilityOf(referenceNumberinput));
         	Referencenumber.clear();
         	Referencenumber.sendKeys(ReferenceNumber);
@@ -452,7 +429,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectReligionInGlobalInformation(String Religioninput, String Religion) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String ReligionInputxpath = "//div[@id='__box23']//input[@id='__box23-inner']";
         String ReligioninputList = "//div[text()='{item}']"; 
         selectFromDropdown(Religioninput, ReligionInputxpath, Religion, ReligioninputList);
@@ -461,7 +437,6 @@ public class AddNewEmployeePage  {
     public void fillNumberOfChilderInGlobalInformation(String numberOfChildren) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement numberofChildren= wait.until(ExpectedConditions.visibilityOf(numberOfChildreninput));
         	numberofChildren.clear();
         	numberofChildren.sendKeys(numberOfChildren);
@@ -471,7 +446,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectOcupationalCodeInGlobalInformation(String OcupationalCodeinput, String OcupationalCode) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String OcupationalCodeInputxpath = "//div[@id='__box22']//div[@id='__box22-content']//input[@id='__box22-inner']";
         String OcupationalCodeinputList = "//div[text()='{item}']"; 
         selectFromDropdown(OcupationalCodeinput, OcupationalCodeInputxpath, OcupationalCode, OcupationalCodeinputList);
@@ -480,7 +454,6 @@ public class AddNewEmployeePage  {
     public void fillNameOfFatherhusbandLegalGuarrdianInGlobalInformation(String nameoffatherhusbandlegalguarrdian) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement NameOfFatherHusbandLegalGuarrdian= wait.until(ExpectedConditions.visibilityOf(nameOfFatherHusbandlegalGuradianinput));
         	NameOfFatherHusbandLegalGuarrdian.clear();
         	NameOfFatherHusbandLegalGuarrdian.sendKeys(nameoffatherhusbandlegalguarrdian);
@@ -490,7 +463,6 @@ public class AddNewEmployeePage  {
     }
     
     public void SelectBloodGroupInGlobalInformation(String BloodGroupinput, String BloodGroup) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String BloodGroupInputxpath = "//div[@id='__box21']//div[@id='__box21-content']//input[@id='__box21-inner']";
         String BloodGroupinputList = "//div[text()='{item}']"; 
         selectFromDropdown(BloodGroupinput, BloodGroupInputxpath, BloodGroup, BloodGroupinputList);
@@ -498,7 +470,6 @@ public class AddNewEmployeePage  {
     
     public void clickAddButtonInEmailInformation() {
         try {
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	wait.until(ExpectedConditions.visibilityOf(addButtonInEmailInformation));
         	Actions actions = new Actions(driver);
         	actions.moveToElement(addButtonInEmailInformation).click().perform();
@@ -508,7 +479,6 @@ public class AddNewEmployeePage  {
     }
     
     public void selectEmailTypeInEmailInformation(String EmailType) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String emailTypedropdownXpath = "//div[@id='__box26-content']//div[@class='sapMInputBaseIconContainer']";
         String emailTypelistContainerXpath = "//ul[@id='__box26-popup-list-listUl']";
         selectDropdownOption(emailTypedropdownXpath, emailTypelistContainerXpath, EmailType);
@@ -517,7 +487,6 @@ public class AddNewEmployeePage  {
     public void fillEmailAddressInEmailInformation(String emailAddress) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement EmailAddress= wait.until(ExpectedConditions.visibilityOf(EmailAddressinput));
         	EmailAddress.clear();
         	EmailAddress.sendKeys(emailAddress);
@@ -527,7 +496,6 @@ public class AddNewEmployeePage  {
     }
     
     public void selectIsPrimaryInEmailInformation(String IsPrimary) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String isPrimarydropdownXpath = "//div[@id='__box27-content']//div[@class='sapMInputBaseIconContainer']";
         String isPrimarylistContainerXpath = "//ul[@id='__box27-popup-list-listUl']";
         selectDropdownOption(isPrimarydropdownXpath, isPrimarylistContainerXpath, IsPrimary);
@@ -535,7 +503,6 @@ public class AddNewEmployeePage  {
     
     public void clickAddButtonInPhoneformation() {
         try {
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	wait.until(ExpectedConditions.visibilityOf(addButtonInPhoneInformation));
         	Actions actions = new Actions(driver);
         	actions.moveToElement(addButtonInPhoneInformation).click().perform();
@@ -545,7 +512,6 @@ public class AddNewEmployeePage  {
     }
     
     public void selectPhoneTypeInPhoneInformation(String PhoneTypeinput, String PhoneType) throws InterruptedException { 
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String PhoneTypeInputxpath = "//div[@id='__box28']//div[@id='__box28-content']//input[@id='__box28-inner']";
         String PhoneTypeinputList = "//div[text()='{item}']"; 
         selectFromDropdown(PhoneTypeinput, PhoneTypeInputxpath, PhoneType, PhoneTypeinputList);
@@ -554,7 +520,6 @@ public class AddNewEmployeePage  {
     public void fillCountryCodeInPhoneInformation(String countryCode) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement CountryCode= wait.until(ExpectedConditions.visibilityOf(CountryCodeinput));
         	CountryCode.clear();
         	CountryCode.sendKeys(countryCode);
@@ -566,7 +531,6 @@ public class AddNewEmployeePage  {
     public void fillPhoneNumberInEmailInformation(String PhoneNumber) {
         try {
         	Thread.sleep(5000);
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	WebElement phoneNumber= wait.until(ExpectedConditions.visibilityOf(PhoneNumberinput));
         	phoneNumber.clear();
         	phoneNumber.sendKeys(PhoneNumber);
@@ -576,7 +540,6 @@ public class AddNewEmployeePage  {
     }
     
     public void selectIsPrimaryInPhoneInformation(String IsPrimary) {
-        Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         String isPrimarydropdownXpath = "//div[@id='__box29-content']//div[@class='sapMInputBaseIconContainer']";
         String isPrimarylistContainerXpath = "//ul[@id='__box29-popup-list-listUl']";
         selectDropdownOption(isPrimarydropdownXpath, isPrimarylistContainerXpath, IsPrimary);
@@ -584,7 +547,6 @@ public class AddNewEmployeePage  {
     
     public void clickContinueButtonPersonalPhoneformation() {
         try {
-            Utils.ScreenShot.TakesScreenShot(this.getClass().getSimpleName());
         	wait.until(ExpectedConditions.visibilityOf(continueButtonPersonalInformation));
         	Actions actions = new Actions(driver);
         	actions.moveToElement(continueButtonPersonalInformation).click().perform();

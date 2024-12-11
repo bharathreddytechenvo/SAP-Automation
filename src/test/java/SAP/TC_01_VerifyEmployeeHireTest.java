@@ -27,7 +27,8 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     
     @BeforeMethod
     public void LaunchApplication() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
-        super.LaunchApplication();
+        super.LaunchApp();
+        
     }
 
     @Test

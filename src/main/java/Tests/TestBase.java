@@ -22,20 +22,34 @@ public class TestBase {
     private LoginPage loginPage;
     private PageObjectManager pageObjectManager;
 
-    public void LaunchApplication() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException{
+    // Launch the application
+    public void LaunchApp() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
         System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
         //System.setProperty("webdriver.http.factory", "jdk-http-client");
-        ChromeOptions options = new ChromeOptions();
+       /*ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        driver = new ChromeDriver(options);
+        options.addArguments("--headless");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");*/
+
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(TestData.url);
+
+        // Ensure PageObjectManager is initialized only after the driver is set
         pageObjectManager = new PageObjectManager(getDriver());
+
+        // Ensure loginPage is initialized after PageObjectManager
         loginPage = pageObjectManager.getLoginPage();
         loginPage.login();
     }
 
     public WebDriver getDriver() {
+        if (driver == null) {
+            throw new IllegalStateException("Driver is not initialized. Please call LaunchApplication() first.");
+        }
         return driver;
     }
 

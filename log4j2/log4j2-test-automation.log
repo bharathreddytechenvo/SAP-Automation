@@ -1,0 +1,24 @@
+[INFO ] 2024-12-11 09:37:53.814 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:38:03.123 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:38:03.184 [main] TestListener - Test Suite is ending: Default test
+[INFO ] 2024-12-11 09:39:30.098 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:39:35.340 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:39:35.422 [main] TestListener - Test Suite is ending: Default test
+[INFO ] 2024-12-11 09:41:21.295 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:41:55.153 [main] TestListener - Test Suite is starting: SAPTests
+[INFO ] 2024-12-11 09:42:16.850 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:43:39.933 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:51:37.805 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:51:55.037 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:52:48.886 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:53:07.297 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:58:51.478 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 09:59:06.842 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 09:59:12.334 [main] TestListener - Test Suite is ending: Default test
+[INFO ] 2024-12-11 10:01:00.243 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 10:01:15.394 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 10:01:21.211 [main] TestListener - Test Suite is ending: Default test
+[INFO ] 2024-12-11 10:02:57.053 [main] TestListener - Test Suite is starting: Default test
+[INFO ] 2024-12-11 10:03:13.309 [main] TestListener - Test is starting: TC_01_VerifyEmployeeHireTest
+[INFO ] 2024-12-11 10:04:08.806 [main] TestListener - Test Suite is ending: Default test
+[INFO ] 2024-12-11 10:05:26.941 [main] TestListener - Test Suite is starting: Default test
