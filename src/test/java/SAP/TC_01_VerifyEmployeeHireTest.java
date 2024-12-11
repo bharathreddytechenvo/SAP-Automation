@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.util.concurrent.ExecutionException;
 
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,15 +27,16 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     private TestBase testBase;
     
     @BeforeMethod
-    public void LaunchApplication() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
+    public void setUp() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
     	testBase = new TestBase();
-    	testBase.LaunchApp();
+    	testBase.LaunchApplication();
     }
 
     @Test
     public void VerifyEmployeeHireTest() {
         try {
         	Thread.sleep(5000);
+        	WebDriver driver = getDriver();
 			pageObjectManager = new PageObjectManager(getDriver());
             homePage = pageObjectManager.getHomePage(); 
             homePage.searchForActionsOrPeople(TestData.addnewEmployee);

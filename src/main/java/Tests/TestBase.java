@@ -23,7 +23,7 @@ public class TestBase {
     private PageObjectManager pageObjectManager;
 
     // Launch the application
-    public void LaunchApp() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
+    public void LaunchApplication() throws InterruptedException, TimeoutException, MalformedURLException, IOException, ExecutionException, AWTException {
         System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
         //System.setProperty("webdriver.http.factory", "jdk-http-client");
        ChromeOptions options = new ChromeOptions();
