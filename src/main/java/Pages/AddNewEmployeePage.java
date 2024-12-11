@@ -33,7 +33,7 @@ public class AddNewEmployeePage  {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[text()='Add New Employee']")
+    @FindBy(xpath = "//h1[@id='__title0']")
     private WebElement addnewEmployee;
     
     @FindBy(xpath = "//input[@id='__input0-inner']")
@@ -155,8 +155,8 @@ public class AddNewEmployeePage  {
     }
     
     public void selectCompanyFromDropdown(String EventReasonNameinput, String EventReasonName) throws InterruptedException {
-    Thread.sleep(10000);
     switchToNewWindowAndPerformActions(driver);
+    Thread.sleep(30000);
     wait.until(ExpectedConditions.visibilityOf(addnewEmployee));
     String EventReasonInputXpath = "//div[@id='__grid0-wrapperfor-__layout11']//div[@class='sapMInputBaseContentWrapper']//input[@id='__box0-inner']";
     String EventReasonListXpathTemplate = "//div[text()='{item}']"; 
@@ -165,7 +165,7 @@ public class AddNewEmployeePage  {
     
     public void selectEventReasonFromDropdown(String EventReasonName) throws InterruptedException {
         try {
-        	Thread.sleep(5000);
+        	Thread.sleep(10000);
             WebElement EventReasonDropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='sapUiVltCell sapuiVltCell']//div[@id='__box1-content']//div[@class='sapMInputBaseIconContainer']")));
             EventReasonDropdown.click();
             String EventReasonNameXPath = "//div[text()='" + EventReasonName + "']";
