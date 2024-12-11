@@ -1,0 +1,3 @@
+browser: chrome
+url: https://hcm-us20-sales.hr.cloud.sap/
+timeout: 30
