@@ -25,21 +25,13 @@ public class TC_01_VerifyEmployeeHireTest {
     private AddNewEmployeePage addNewEmployeePage;
     private TestBase testBase;
     
-    @BeforeMethod
-    public void setUp() throws TimeoutException, MalformedURLException, InterruptedException, IOException, ExecutionException, AWTException {
-    	 try {
-    	    testBase = new TestBase();
-    	    testBase.LaunchApplication();
-    	    pageObjectManager = new PageObjectManager(testBase.getDriver());
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
-     }
-    	
 
     @Test
     public void VerifyEmployeeHireTest() {
         try {
+            testBase = new TestBase();
+     	    testBase.LaunchApplication();
+     	    pageObjectManager = new PageObjectManager(testBase.getDriver());
             homePage = pageObjectManager.getHomePage(); 
             homePage.searchForActionsOrPeople(TestData.addnewEmployee);
             addNewEmployeePage = pageObjectManager.getAddNewEmployeePage(); 
@@ -81,18 +73,10 @@ public class TC_01_VerifyEmployeeHireTest {
             addNewEmployeePage.fillPhoneNumberInEmailInformation(Utilities.generatePhoneNumber());
             addNewEmployeePage.selectIsPrimaryInPhoneInformation("Yes");
             addNewEmployeePage.clickContinueButtonPersonalPhoneformation();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assert.fail("Test failed due to exception: " + e.getMessage());
-        }
-    }
-
-    @AfterMethod
-    public void CloseApplication() {
-        try {
             testBase.quitDriver();
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail("Test failed due to exception: " + e.getMessage());
         }
     }
 }
