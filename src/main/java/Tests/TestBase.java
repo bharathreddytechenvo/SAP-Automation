@@ -14,7 +14,7 @@ public class TestBase {
     
     public void launchApplication() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
+            System.setProperty("webdriver.chrome.driver", "C:\\Tools\\chromedriver.exe");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-gpu", "--window-size=1920x1080");
