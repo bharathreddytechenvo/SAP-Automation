@@ -1,16 +1,10 @@
 package SAP;
-
-import java.awt.AWTException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.concurrent.ExecutionException;
-
-import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+import Listeners.TestListener;
 import Pages.AddNewEmployeePage;
 import Pages.HomePage;
 import Pages.LoginPage;
@@ -19,6 +13,8 @@ import Tests.TestBase;
 import Utils.TestData;
 import Utils.Utilities;
 
+
+@Listeners(TestListener.class)
 public class TC_01_VerifyEmployeeHireTest extends TestBase {
 	
 	private PageObjectManager pageObjectManager;
@@ -28,7 +24,7 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     
     @BeforeMethod
     public void setup() {
-        LaunchApplication();
+        launchApplication();
         pageObjectManager = new PageObjectManager(getDriver());
     }
 
@@ -86,6 +82,6 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     
     @AfterMethod
     public void tearDown() {
-        quitDriver();
+            quitDriver();
     }
 }

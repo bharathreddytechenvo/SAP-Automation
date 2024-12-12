@@ -2,6 +2,7 @@ package Pages;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -28,7 +29,7 @@ public class AddNewEmployeePage  {
             throw new IllegalArgumentException("WebDriver instance is null!");
         }
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 30);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
     

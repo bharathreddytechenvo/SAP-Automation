@@ -2,18 +2,32 @@ package Tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeTest;
+
 import Utils.TestData;
 
 public class TestBase {
 
     protected WebDriver driver;
+    
+    public void launchApplication() {
+        if (driver == null) {
+            System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
 
-    public void LaunchApplication() {
-        System.setProperty("webdriver.chrome.driver", TestData.chromeDriverPath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(TestData.url);
-        System.out.println("Title of the page: " + driver.getTitle());
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-gpu", "--window-size=1920x1080");
+            driver = new ChromeDriver(options);
+
+            System.out.println("Initializing ChromeDriver...");
+            driver.manage().window().maximize();
+            driver.get(TestData.url);
+
+            System.out.println("Title of the page: " + driver.getTitle());
+        } else {
+            System.out.println("WebDriver is already initialized.");
+        }
     }
 
     public WebDriver getDriver() {
@@ -27,6 +41,7 @@ public class TestBase {
         if (driver != null) {
             driver.quit();
             driver = null;
+            System.out.println("WebDriver instance has been terminated.");
         }
     }
 }

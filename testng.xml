@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="CombinedSuite">
-    <listeners>
-        <listener class-name="Listeners.TestListener"/>
-    </listeners>
     <test name="SAPTests">
         <classes>
             <class name="SAP.TC_01_VerifyEmployeeHireTest"/>

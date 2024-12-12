@@ -8,7 +8,6 @@ public class ExtentManager {
     private static ExtentReports extent;
     private static ExtentSparkReporter sparkReporter;
 
-    // Singleton pattern to ensure only one instance of ExtentReports
     public static synchronized ExtentReports getInstance() {
         if (extent == null) {
             extent = createInstance();
@@ -17,11 +16,10 @@ public class ExtentManager {
     }
 
     private static ExtentReports createInstance() {
-        // Define the report file and its configuration
-        sparkReporter = new ExtentSparkReporter("SAP_Automation_Regression_Report.html");
-        sparkReporter.config().setDocumentTitle("SAP Automation Regression Report");
+        sparkReporter = new ExtentSparkReporter("SAP Automation_Regression_Report.html");
+        sparkReporter.config().setDocumentTitle("SAP Automation_Regression_Report");
         sparkReporter.config().setTheme(Theme.STANDARD);
-        sparkReporter.config().setReportName("SAP Automation Regression Report");
+        sparkReporter.config().setReportName("SAP Automation_Regression_Report");
 
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
@@ -32,7 +30,6 @@ public class ExtentManager {
         return sparkReporter;
     }
 
-    // Method to close the report and flush it
     public static synchronized void closeExtentReports() {
         if (extent != null) {
             extent.flush();

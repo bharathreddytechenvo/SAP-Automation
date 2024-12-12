@@ -3,9 +3,7 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import Utils.Utilities;
-
+import java.time.Duration;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
@@ -18,7 +16,7 @@ public class HomePage {
             throw new IllegalArgumentException("WebDriver instance is null!");
         }
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 30);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
 
