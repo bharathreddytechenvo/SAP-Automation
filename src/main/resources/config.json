@@ -1,5 +1,14 @@
 {
   "browser": "chrome",
   "url": "https://hcm-us20-sales.hr.cloud.sap/",
-  "timeout": 30
+  "timeout": 30,
+  "driver": "C:\\Tools\\chromedriver.exe",
+  "options": {
+    "headless": false,
+    "disable-extensions": true,
+    "start-maximized": true,
+    "incognito": true,
+    "disable-gpu": true,
+    "no-sandbox": true
+  }
 }

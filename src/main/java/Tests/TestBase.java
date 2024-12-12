@@ -1,40 +1,66 @@
 package Tests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.ITestContext;
-import org.testng.annotations.BeforeTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Utils.TestData;
+import java.io.File;
+import java.io.IOException;
 
 public class TestBase {
 
     protected WebDriver driver;
-    
-    public void launchApplication() {
-        if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Tools\\chromedriver.exe");
 
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-gpu", "--window-size=1920x1080");
-            driver = new ChromeDriver(options);
+    public static class Config {
+        public String browser;
+        public String url;
+        public int timeout;
+        public String driver;
+        public Options options;
 
-            System.out.println("Initializing ChromeDriver...");
-            driver.manage().window().maximize();
-            driver.get(TestData.url);
+        public static class Options {
+            @JsonProperty("headless")
+            public boolean headless;
 
-            System.out.println("Title of the page: " + driver.getTitle());
-        } else {
-            System.out.println("WebDriver is already initialized.");
+            @JsonProperty("disable-extensions")
+            public boolean disableExtensions;
+
+            @JsonProperty("start-maximized")
+            public boolean startMaximized;
+
+            @JsonProperty("incognito")
+            public boolean incognito;
+
+            @JsonProperty("disable-gpu")
+            public boolean disableGpu;
+
+            @JsonProperty("no-sandbox")
+            public boolean noSandbox;
         }
     }
 
-    public WebDriver getDriver() {
-        if (driver == null) {
-            throw new IllegalStateException("WebDriver is not initialized!");
+    public void loadConfig() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Config config = objectMapper.readValue(new File("src\\main\\resources\\config.json"), Config.class);
+
+        //String driverPath = config.driver != null ? config.driver : TestData.chromeDriverPath;
+        System.setProperty("webdriver.chrome.driver", config.driver);
+
+        /*ChromeOptions options = new ChromeOptions();
+        if (!config.options.headless) options.addArguments("--headless");  // Ensure this is false
+        if (config.options.disableExtensions) options.addArguments("--disable-extensions");
+        if (config.options.startMaximized) options.addArguments("--start-maximized");
+        if (config.options.incognito) options.addArguments("--incognito");
+        if (config.options.disableGpu) options.addArguments("--disable-gpu");
+        if (config.options.noSandbox) options.addArguments("--no-sandbox");*/
+        try {
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.get(config.url);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return driver;
     }
 
     public void quitDriver() {

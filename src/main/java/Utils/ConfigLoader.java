@@ -14,7 +14,7 @@ public class ConfigLoader {
 
     public static void loadConfigFromJson() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Config config = objectMapper.readValue(new File("src/main/resources/config.json"), Config.class);
+        Config config = objectMapper.readValue(new File("src\\main\\resources\\config.json"), Config.class);
         browser = config.getBrowser();
         url = config.getUrl();
         timeout = config.getTimeout();
@@ -22,8 +22,8 @@ public class ConfigLoader {
 
     public static void loadConfigFromYaml() throws IOException {
         Yaml yaml = new Yaml();
-        try (FileReader reader = new FileReader("src/main/resources/config.yaml")) {
-            Config config = yaml.loadAs(reader, Config.class);  // Use FileReader instead of File
+        try (FileReader reader = new FileReader("src\\main\\resources\\config.yaml")) {
+            Config config = yaml.loadAs(reader, Config.class);  
             browser = config.getBrowser();
             url = config.getUrl();
             timeout = config.getTimeout();

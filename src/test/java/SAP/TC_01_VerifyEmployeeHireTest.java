@@ -1,4 +1,6 @@
 package SAP;
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,9 +25,9 @@ public class TC_01_VerifyEmployeeHireTest extends TestBase {
     private AddNewEmployeePage addNewEmployeePage;
     
     @BeforeMethod
-    public void setup() {
-        launchApplication();
-        pageObjectManager = new PageObjectManager(getDriver());
+    public void setup() throws Exception  {
+    	loadConfig();
+        pageObjectManager = new PageObjectManager(driver);
     }
 
     @Test
